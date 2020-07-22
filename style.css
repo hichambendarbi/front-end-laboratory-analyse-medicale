@@ -472,7 +472,7 @@ a {
 
 .auto_recru button {
   position: relative;
-  top: 8%;
+  top: 13px;
   padding: 2px;
   display: flex;
   justify-content: center;
@@ -794,6 +794,13 @@ a {
 
   .card .text {
     padding: 3px 2px;
+  }
+}
+
+@media (max-width: 375px) {
+  .divbtn {
+    padding: 0 2px;
+    margin-top: 5px;
   }
 }
 
