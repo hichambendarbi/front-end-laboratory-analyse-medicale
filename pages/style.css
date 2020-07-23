@@ -555,3 +555,11 @@ label.light {
     padding: 6px 15px;
   }
 }
+/* when reat component is loading display svg loading */
+#test_list:empty::before {
+  /* background: url('../imgs/logo.jpg'); */
+  content: "...loading";
+  font: 700;
+  width: 100px;
+  height: 100px;
+}
