@@ -34,6 +34,7 @@
 .cont_img_team {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .title_team h1 {
@@ -44,9 +45,8 @@
 
 .title_team {
   position: absolute;
-  top: 50%;
   /* left: 50%; */
-  width: 30%;
+  width: 250px;
   height: 100px;
   background: #dd212f;
   text-align: center;
@@ -55,6 +55,23 @@
   opacity: .7;
   justify-content: center;
   border-radius: 10px;
+}
+
+.cont_img_team img {
+  width: 100%;
+}
+
+@media(max-width: 800px) {
+  .title_team {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+  }
+  .title_team h1 {
+    color: #FFF;
+    FONT-SIZE: 20px;
+    letter-spacing: 3px;
+  }
 }
 
 /* input[type='text'],
@@ -908,7 +925,6 @@ label.light {
     padding: 6px 15px;
   }
 }
-<<<<<<< HEAD:pages/style.css
 /* when reat component is loading display svg loading */
 #test_list:empty::before {
   /* background: url('../imgs/logo.jpg'); */
@@ -917,15 +933,3 @@ label.light {
   width: 100px;
   height: 100px;
 }
-=======
-
-@media (max-width: 320px) {
-  .security {
-    font-size: 10px;
-  }
-}
-
-.section_automate {
-  padding: 120px 20px;
-}
->>>>>>> versionbeta:laboratoire-fes/style.css
