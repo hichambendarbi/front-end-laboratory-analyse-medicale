@@ -9,17 +9,55 @@
   margin: 20px 25px;
 }
 
-form {
+.frm_appoi {
   display: flex;
   flex-direction: row;
   /* width: 1000px; */
   justify-content: space-between;
   /* margin: 50px auto; */
   padding: 10px 20px;
-  background: #f4f7f8;
+  background: none;
 }
 
-input[type='text'],
+.btn_appoint_confir {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #00927b;
+  color: #FFF;
+  font-size: 20px;
+  background: #014e00;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+.cont_img_team {
+  display: flex;
+  justify-content: center;
+}
+
+.title_team h1 {
+  color: #FFF;
+  FONT-SIZE: 30px;
+  letter-spacing: 3px;
+}
+
+.title_team {
+  position: absolute;
+  top: 50%;
+  /* left: 50%; */
+  width: 30%;
+  height: 100px;
+  background: #dd212f;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  opacity: .7;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+/* input[type='text'],
 input[type='password'],
 input[type='date'],
 input[type='datetime'],
@@ -40,6 +78,21 @@ select {
   padding: 8px;
   width: 100%;
   background-color: #e8eeef;
+  color: black;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+} */
+
+.input_app {
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  height: auto;
+  margin: auto;
+  outline: 0;
+  padding: 8px;
+  width: 100%;
+  background-color: none;
   color: black;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   margin-bottom: 30px;
@@ -100,6 +153,8 @@ label.light {
 #section_tests {
   padding-top: 120px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
@@ -109,11 +164,12 @@ label.light {
 
 .container_tests {
   margin: 0px 25px;
+  width: 70%;
 }
 
 .container_details {
   padding: 15px 10px;
-  width: 90%;
+  width: 70%;
 }
 
 .card_test {
@@ -137,7 +193,7 @@ label.light {
 
 .test_abrv {
   background: #ff000000;
-  width: 90px;
+  width: 20%;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   border-right: 4px solid green;
@@ -160,7 +216,7 @@ label.light {
   display: block;
   overflow: hidden;
   white-space: nowrap;
-  width: 300px;
+  width: 50%;
   padding: 10px;
   color: #544e4e;
   display: flex;
@@ -173,7 +229,7 @@ label.light {
 }
 
 .price_test {
-  width: 22%;
+  width: 30%;
   padding: 10px;
   justify-content: space-between;
   display: flex;
@@ -223,6 +279,8 @@ label.light {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   background: #FFF;
+  width: 100%;
+  border: none;
 }
 
 .container_details h1 {
@@ -246,18 +304,73 @@ label.light {
   padding-top: 20px;
 }
 
+.container_recruitment {
+  width: 100%;
+  display: flex;
+  padding-top: 120px;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.cont_divs {
+  width: 70%;
+}
+
+.offre_btn {
+  background-color: #004f00;
+  border-radius: 21px;
+  color: #fffff2;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 18px;
+  padding: 12px 30px;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  position: relative;
+  border: none;
+}
+
+.offre_btn:hover {
+  border: 1px solid red;
+  background: none;
+  font-size: 12px;
+  color: #171515;
+}
+
 @media (max-width: 500px) {
   #section_tests {
     flex-direction: column;
   }
 
+  .cont_divs {
+    width: 90%;
+  }
+
+  .title_cont_cont {
+    font-size: 16px;
+  }
+
+  .test_complete_name {
+    width: 60%;
+  }
+
+  .price_test {
+    width: 20%;
+  }
+
   .container_tests {
     margin: 0px 5px;
+    width: 95%;
   }
 
   #test_title {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .search {
@@ -420,6 +533,7 @@ label.light {
 }
 
 /* Styling resultat */
+
 .container_resultat {
   padding-top: 120px;
   display: flex;
@@ -467,7 +581,6 @@ label.light {
 
 .card_delais {
   width: 40%;
-
 }
 
 .title_card {
@@ -489,6 +602,221 @@ label.light {
 .retour_result h5 {
   color: #ca1000;
   font-weight: 600;
+}
+
+/* Styling contact */
+.contact_contact {
+  padding-top: 120px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact_contact_sous {
+  width: 70%;
+}
+
+.title_cont_cont {
+  color: #232121;
+}
+
+.line_decor {
+  width: 100px;
+  height: 4px;
+  background: green;
+}
+
+.infos_contact_form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.infos_contact_contact {
+  width: 45%;
+  background: #014f00;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.contact_form_form {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inp-control {
+  background: #FFF;
+  width: 100%;
+  height: 35px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.div_inp_cont {
+  width: 100%;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid green;
+}
+
+.contact_form_form textarea {
+  width: 95%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid green;
+  margin-bottom: 10px;
+}
+
+.frm_cont {
+  width: 50%;
+}
+
+.infos_cont_sec {
+  margin-top: 10px;
+}
+
+.send_mgs {
+  width: 100%;
+  font-size: 20px;
+  white-space: 35px;
+  height: 35px;
+  background: none;
+  border: 2px solid green;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.send_mgs:hover {
+  background: #fb0304;
+  border: none;
+  color: #e8eeef;
+}
+
+.cont_img_inf {
+  width: 25px;
+  height: 25px;
+  margin-right: 25px;
+}
+
+.link_inf_cont {
+  display: flex;
+  align-items: flex-end;
+  padding-left: 15px;
+
+}
+
+.ti_cont_inf {
+  color: #FFF;
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: 5px;
+}
+
+.img_hover_link {
+  width: 35px;
+  height: 35px;
+}
+
+.social_inf_contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.line_social {
+  width: 90%;
+  HEIGHT: 3PX;
+  background: #171515;
+  display: flex;
+}
+
+.con_social_links {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.soc_hover_link {
+  width: 50px;
+  height: 50px;
+}
+
+.soc_hover_link {
+  width: 35px;
+  height: 35px;
+  background: #171515;
+  padding: 25px;
+  border-radius: 50%;
+  display: flex;
+}
+
+.soc_hover_link:hover {
+  background-color: #014f00;
+  max-height: 40px;
+  opacity: 1;
+  border: 2px solid #FFF;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+}
+
+@media (max-width: 900px) {
+  .contact_contact_sous {
+    width: 90%;
+  }
+
+  .infos_contact_form {
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .frm_cont {
+    width: 100%;
+    margin-bottom: 10px;
+    background: none;
+  }
+
+  .inp-control {
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .infos_contact_contact {
+    width: 100%;
+    height: 250px;
+  }
+
+  .ti_cont_inf {
+    letter-spacing: 1px;
+    font-size: 15px;
+  }
+
+  .soc_hover_link {
+    padding: 15px;
+  }
+
+  .img_hover_link {
+    width: 25px;
+    height: 25px;
+  }
+
+  .contact_form_form textarea {
+    width: 94%;
+  }
+
+  .soc_hover_link {
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media (max-width: 700px) {
@@ -516,7 +844,7 @@ label.light {
   }
 
   fieldset {
-    width: 85%;
+    width: 95%;
     margin-bottom: 30px;
     border: none;
   }
@@ -543,6 +871,31 @@ label.light {
     align-items: center;
     justify-content: center;
   }
+
+  .container_sec_res {
+    flex-direction: column;
+  }
+
+  .res_img,
+  .section_resultat {
+    width: 95%;
+  }
+
+  .res_img {
+    padding: 10px 15px;
+  }
+
+  .container_delais {
+    flex-direction: column;
+  }
+
+  .card_delais {
+    width: 95%;
+  }
+  .frm_appoi { 
+  flex-direction: column;
+  }
+
 }
 
 @media (max-width: 375px) {
@@ -555,6 +908,7 @@ label.light {
     padding: 6px 15px;
   }
 }
+<<<<<<< HEAD:pages/style.css
 /* when reat component is loading display svg loading */
 #test_list:empty::before {
   /* background: url('../imgs/logo.jpg'); */
@@ -563,3 +917,15 @@ label.light {
   width: 100px;
   height: 100px;
 }
+=======
+
+@media (max-width: 320px) {
+  .security {
+    font-size: 10px;
+  }
+}
+
+.section_automate {
+  padding: 120px 20px;
+}
+>>>>>>> versionbeta:laboratoire-fes/style.css

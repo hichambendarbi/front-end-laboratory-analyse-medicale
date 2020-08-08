@@ -1,0 +1,19 @@
+{
+  "name": "laboamfes",
+  "version": "1.0.1",
+  "description": "laboratoire-fes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hichambendarbi/laboamfes.git"
+  },
+  "author": "hicham bendarbi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hichambendarbi/laboamfes/issues"
+  },
+  "homepage": "https://github.com/hichambendarbi/laboamfes#readme"
+}
