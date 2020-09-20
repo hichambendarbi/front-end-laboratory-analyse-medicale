@@ -213,7 +213,8 @@
                     <h2 class="footer-menu-name">Laboratoire fes</h2>
                     <ul id="menu-quick-links" class="footer-menu-list">
                         <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                            <a target="_blank" rel="noopener noreferrer" href="../index.html#section_services">Nos services</a>
+                            <a target="_blank" rel="noopener noreferrer" href="../index.html#section_services">Nos
+                                services</a>
                         </li>
                         <li class="menu-item menu-item-type-custom menu-item-object-custom">
                             <a rel="noopener noreferrer" href="notre-catalogue.html">Notre
@@ -270,8 +271,7 @@
                         </path>
                     </svg>
                 </a>
-                <a class="footer-social-link twitter" href="https://twitter.com/LaboratoireFes?s=09"
-                    target="_blank">
+                <a class="footer-social-link twitter" href="https://twitter.com/LaboratoireFes?s=09" target="_blank">
                     <span class="hidden-link-text">Twitter</span>
                     <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
                         <path class="footer-social-icon-path"
@@ -337,11 +337,11 @@
 
 <script src="js/main.js"></script>
 <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-  <script type="text/babel">
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+<script type="text/babel">
 
-    const CatalogList = ({mnemonic, title, cnops, cnss, prixTotal, bCode}) => {
+    const CatalogList = ({ mnemonic, title, cnops, cnss, prixTotal, bCode }) => {
 
         return (
             <div className="card_test">
@@ -365,24 +365,47 @@
 
     class App extends React.Component {
 
-      render(){
+        constructor(){
+            super();
+            this.state = {
+                tests : []
+            };
+        }
 
-        return (
-            <CatalogList mnemonic="LIPOELECT"
-                        title="Electrophorèse des lipides - EPL"
-                        cnops="50"
-                        cnss="45"
-                        prixTotal="103"
-                        bCode="80"
-            />
-        )
-      }
+        componentWillMount() {
+
+            this.postData().then(({data})=>console.log(data.AllLabTests_fr))
+            
+        }
+
+        async postData(){
+            const res = await fetch(`https://ittyni.com/api/tests`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({"query":"query{AllLabTests_fr{id name{fr}finance{Bcode}reference{Mnemonic}specimen{nature tubeColor anticoagulant numberoftube volumemin}}}"})
+            })
+            return res.json();
+        }
+        render() {
+            console.log(this.state.tests)
+            return (
+                <CatalogList mnemonic="LIPOELECT"
+                    title="Electrophorèse des lipides - EPL"
+                    cnops="50"
+                    cnss="45"
+                    prixTotal="103"
+                    bCode="80"
+                />
+            )
+        }
     }
     ReactDOM.render(
         <App />,
         document.getElementById("test_list")
     );
-  </script>
+</script>
 </body>
 
 </html>
