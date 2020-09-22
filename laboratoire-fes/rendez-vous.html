@@ -67,12 +67,21 @@
           phone: "",
           date: "",
           time: "",
-          description: ""
+          description: "",
+          typeappoint: "no"
         };
         }
 
         onChange = e => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({
+             [e.target.name]: e.target.value
+              });
+              let check = document.getElementById("typeappoint")
+            if(check.checked) {
+            this.setState({ 
+                typeappoint: "yes"
+            });
+        }
       };
 
       onSubmit = e => {
@@ -82,14 +91,13 @@
           phone: this.state.phone,
           date: this.state.date,
           time: this.state.time,
-          description: this.state.description
+          description: this.state.description,
+          typeappoint: this.state.typeappoint
         };
     
         console.log(newAppointment)
       };
         render() {
-
-
             return <div className="quiz">
                 <div id="container_rdv">
                      <h1 id="rdv_title">Prendre un rendez-vous</h1>
@@ -108,9 +116,13 @@
 
                 <label >heure*:</label>
                 <input className="input_app" type="time" name="time" name="time" value={this.state.time} onChange={this.onChange}/>
+               
                 <label>Description:</label>
                 <textarea className="input_app" id="appointment_description" name="appointment_description"
                     placeholder="Je voudrais prendre ce rendez-vous pour.." name="description" value={this.state.description} onChange={this.onChange}/>
+                    <label style={{color: "#2a86d6", fontWeight: "700"}}>
+                        <input type="checkbox" id="typeappoint" name="typeappoint" value={this.state.typeappoint} onChange={this.onChange} />
+                    Cocher cette case si vous voulez faire un prélèvement à domicile.</label>
                 <button className="btn_appoint_confir" type="submit"  onSubmit={this.onSubmit}>Confirmer</button>
             </fieldset>
             <fieldset>
