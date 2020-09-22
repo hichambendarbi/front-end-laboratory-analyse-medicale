@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>catalogue et liste des analyses medicales</title>
+    <title>prenez rendez-vous gratuitement en ligne - laboratoire fes</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="Liste et tarifs-prix des Analyses Medicales et
-     des examens de biologie medicale, catalogue et prix au maroc proposer par le laboratoire fes." />
-    <meta name="keywords" content="Prix et tarifs des analyse medicale au maroc et fes,
-    liste des examens de biologie medicale" />
+    <meta name="description"
+        content="la prise des rendez-vous en ligne gratuitement en laboratoire de biologie médicale et des analyses medicale" />
+    <meta name="keywords"
+        content="reservation, prise , rendez-vous en ligne en laboratoire des analyses medicale et de biologie medicale, prélèvement ,localisation, tele, fax, fix, whatsapp" />
     <link rel="stylesheet" type="text/css" href="../style.css" />
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
@@ -94,19 +94,50 @@
         </ul>
     </header>
 
-    <!-- List des tests  -->
-    <div id="section_tests">
+    <!-- Rendez-vous avec le laboratoire -->
+    <div id="container_rdv">
+        <h1 id="rdv_title">Prendre un rendez-vous</h1>
+        <form class="frm_appoi" action="index.html" method="post">
+            <fieldset>
+                <legend><span class="number">1</span>Informations personnel</legend>
+                <label for="name">Nom complet*:</label>
+                <input class="input_app" type="text" id="name" name="user_name" placeholder="Nom comlet" required
+                    pattern="[a-zA-Z0-9]+">
 
-        <div class="container_tests">
-            <h1 id="test_title">Catalogue des analyses medicale</h1>
-            <div id="test_list">
-                <img src="../imgs/spinner.gif" class="imgLoading">
-            </div> 
-        </div>
+                <label for="mail">Email*:</label>
+                <input class="input_app" type="email" id="mail" name="user_email"
+                    placeholder="LaboratoireFes@Labofes.com" required>
+
+                <label for="tel">Numero telephone:</label>
+                <input class="input_app" type="tel" id="tel" placeholder="Un numero de telephone active"
+                    name="user_num">
+                <button class="btn_appoint_confir">Confirmer</button>
+
+            </fieldset>
+
+            <fieldset>
+                <legend><span class="number">2</span>Details de reandez-vous</legend>
+                <label for="appointment_for">Selectioner l'analyse*:</label>
+                <select class="input_app" id="appointment_for" name="appointment_for" required>
+                    <option value="nfs">Choisir votre analyse</option>
+                    <option value="nfs">Nfs</option>
+                    <option value="fer">Fer</option>
+                </select>
+                <label for="appointment_description">Description:</label>
+                <textarea class="input_app" id="appointment_description" name="appointment_description"
+                    placeholder="Je voudrais prendre ce rendez-vous pour.."></textarea>
+                <label for="date">Date*:</label>
+                <input class="input_app" type="date" name="date" value="" required></input>
+                <br>
+                <label for="time">heure*:</label>
+                <input class="input_app" type="time" name="time" value="" required></input>
+
+            </fieldset>
+        </form>
     </div>
 </body>
 
-<div id="section_footer" class="pg-footer" style="margin-top: 500px;">
+<div id="section_footer" class="pg-footer">
     <footer class="footer">
         <svg class="footer-wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 100"
             preserveAspectRatio="none">
@@ -161,8 +192,7 @@
                     <h2 class="footer-menu-name">Laboratoire fes</h2>
                     <ul id="menu-quick-links" class="footer-menu-list">
                         <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                            <a target="_blank" rel="noopener noreferrer" href="../index.html#section_services">Nos
-                                services</a>
+                            <a target="_blank" rel="noopener noreferrer" href="../index.html#section_services">Nos services</a>
                         </li>
                         <li class="menu-item menu-item-type-custom menu-item-object-custom">
                             <a rel="noopener noreferrer" href="notre-catalogue.html">Notre
@@ -219,7 +249,8 @@
                         </path>
                     </svg>
                 </a>
-                <a class="footer-social-link twitter" href="https://twitter.com/LaboratoireFes?s=09" target="_blank">
+                <a class="footer-social-link twitter" href="https://twitter.com/LaboratoireFes?s=09"
+                    target="_blank">
                     <span class="hidden-link-text">Twitter</span>
                     <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
                         <path class="footer-social-icon-path"
@@ -284,146 +315,6 @@
 </div>
 
 <script src="js/main.js"></script>
-<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
-<script type="text/babel">
-
-    const CatalogList = ({ tests }) => {
-
-        return (
-       <div>
-            {tests.map(test=> 
-                <div className="card_test">
-                <div className="test_abrv">
-                    <h1>{test.reference.Mnemonic}</h1>
-                </div>
-                <div className="test_complete_name">
-                    {test.name.fr}
-                    <div className="security">
-                        <span className="cnss"><span className="ass">CNOPS: <integer>{test.finance.map(b=> (b.Bcode*0.8).toFixed(0))}</integer>dhs</span></span>
-                        <span className="cnops"><span className="ass">CNSS: {test.finance.map(b=> (b.Bcode*0.7).toFixed(0))} dhs</span></span>
-                    </div>
-                </div>
-                <div className="price_test">
-                    <h3>{test.finance.map(b=> (b.Bcode*1.34).toFixed(0))} dhs</h3>
-                    <h4>B {test.finance.map(b=> b.Bcode)}</h4>
-                </div>
-            </div>
-              
-            )}
-        </div>
-
-        )
-    }
-
-    class App extends React.Component { 
-
-        constructor(){
-            super();
-            this.state = {
-                tests : [],
-                searchCre: '',
-                more: 5,
-                staticData: true
-            };
-        }
-       
-        componentWillMount() {
-            this.postData().then(({data})=> this.setState({tests: data.AllLabTests_fr}))
-        }
-
-        async postData(){
-            const res = await fetch(`https://ittyni.com/api/tests`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({"query":"query{AllLabTests_fr{id name{fr}finance{Bcode}reference{Mnemonic}specimen{nature tubeColor anticoagulant numberoftube volumemin}}}"})
-            })
-            return res.json();
-        }
-
-        updateSearch(event) {
-            this.setState({
-             searchCre: event.target.value.substr(0,20)
-            });
-        }
-        render() {
-                   
-                   let Test;
-                        Test = this.state.tests.filter(
-                        (test) => {
-                        const query = this.state.searchCre.toLowerCase();
-                        return test.reference.Mnemonic.toLowerCase().indexOf(query)>=0 || test.name.fr.toLowerCase().indexOf(query)>=0
-                     }
-                       );
-
-        var PaginationPosts = Test.splice(0,this.state.more)
-        var Pagination = [
-        {finance: [
-            {Bcode: 70}
-        ],
-        name: {fr: "1,5 Anhydroglucitol Quantitative, Serum ou Plasma"},
-        reference: {Mnemonic: "GlycoMark"}},
-        {finance: [
-            {Bcode: 50}
-        ],
-        name: {fr: "Groupage sanguin ABO - RH1(D) - Sang total(GRS)"},
-        reference: {Mnemonic: "ABORH"}},
-        {finance: [
-            {Bcode: 50}
-        ],
-        name: {fr: "Alanine aminotransférase - Serum oo Plasma (ALAT - GPT)"},
-        reference: {Mnemonic: "SGPT"}},
-        {finance: [
-            {Bcode: 60}
-        ],
-        name: {fr: "Albumine - Sérum ou Plasma"},
-        reference: {Mnemonic: "ALB"}},
-        {finance: [
-            {Bcode: 50}
-        ],
-        name: {fr: "Alkaline Phosphatase, Serum ou Plasma"},
-        reference: {Mnemonic: "PAL"}},
-        ]
-        const onMore = (e) => {
-            console.log(PaginationPosts)
-            if(PaginationPosts.length>= this.state.more)
-                this.setState({
-                    more: this.state.more + 5
-                })
-                PaginationPosts = Test.splice(0, this.state.more)
-                if(this.state.tests.length>0) {
-                    this.setState({
-                        staticData: false
-                })
-                }
-            }
-
-                    
-                      
-            return (
-                <div>
-                    <div className="search">
-                    <div className="icon_search">
-                        <img src="../imgs/search.svg" width="25px" height="25px" />
-                    </div>
-                    <input type="test" id="search_input" placeholder="Recherche par filtrage" name="" onChange={this.updateSearch.bind(this)} style={{height: "auto"}}/>
-               </div>
-               {this.state.staticData ? <CatalogList tests={Pagination}/> : <CatalogList tests={PaginationPosts}/>}
-                
-                <button onClick={onMore} className="more">Afficher plus</button>
-            </div>
-            )
-            
-        }
-    }
-    ReactDOM.render(
-        <App />,
-        document.getElementById("test_list")
-    );
-</script>
 </body>
 
 </html>

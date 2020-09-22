@@ -1109,3 +1109,12 @@ a {
       width: 49.99%;
   } */
 }
+
+.footer-content-column ul li a {
+  color: #948e8e;
+  text-decoration: none;
+}
+
+.footer-menu-list li {
+  color: red;
+}

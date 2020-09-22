@@ -1,0 +1,47 @@
+        <!-- <div class="container_details">
+            <h1>Vous préparer</h1>
+            <p>Être dans les meilleures conditions pour votre prélèvement</p>
+            <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+            <h3>Vous préparer avant votre prélèvement</h3>
+            <p>
+                Vous effectuez prochainement une prise de sang au laboratoire ou à domicile ?
+            </p>
+            <p>Respectez ces quelques consignes pour vous préparer et être dans les meilleures conditions pour obtenir
+                des résultats fiables et de qualité.</p>
+            <p>
+                <strong>Ne pratiquez pas d’activités physiques trop intenses dans les 24 heures qui précèdent votre
+                    prélèvement.</strong>
+            </p>
+            <p>
+                <strong>Ne prenez pas de repas riche en sucre ou en graisse.</strong>
+            </p>
+            <p>
+                <strong>Ne fumez pas.</strong>
+            </p>
+
+            <h3>Horaires de prélèvement et jeûn</h3>
+            <p>
+                Il est toujours préférable de réaliser votre prélèvement le matin entre 7h et 11h.
+            </p>
+            <p>
+                En cas d’urgence, et en accord avec votre biologiste DiagnoVie, votre prélèvement pourra être réalisé à
+                tout moment.
+            </p>
+            <p>
+                Pour les conditions de jeûn, contactez votre laboratoire, qui vous précisera, selon votre prescription,
+                les consignes appropriées à la bonne réalisation de vos examens.
+            </p>
+            <p>
+                Dans tous les cas, vous pouvez boire sans excès de l’eau, du café ou du thé sans sucre, sans lait et
+                sans crème. Et vous brosser les dents.
+            </p>
+            <p>
+                En cas d’incertitude, votre laboratoire <strong><a href="_tag">Laboratoire Fes</a></strong> <a>+212
+                    676766611</a> se tient toujours à votre disposition pour vous
+                fournir les informations correspondant à votre situation de santé.
+            </p>
+            <a class="footer-call-to-action-button button" href="https://wa.me/+212637521701" target=" _self">
+                WHATSAPP
+            </a>
+
+        </div> -->
