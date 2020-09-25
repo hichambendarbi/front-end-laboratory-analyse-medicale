@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js" charset="utf-8"></script>
 
-<style>
+    <style>
         /* .quiz {
             display: block;
             background: linear-gradient(to bottom, #2a86d6 0%,#7db9e8 100%);
@@ -59,92 +59,104 @@
     </style>
 
     <script type="text/babel">
-    class Quiz extends React.Component {
-        constructor(props) {
-            super();
-        this.state = {
-          name: "",
-          phone: "",
-          date: "",
-          time: "",
-          description: "",
-          typeappoint: "no"
-        };
-        }
+        class Quiz extends React.Component {
+            constructor(props) {
+                super();
+                this.state = {
+                    fullname: "",
+                    tele: "",
+                    date: "",
+                    time: "",
+                    description: "",
+                    needphlebotomist: "no"
+                };
+            }
 
-        onChange = e => {
-        this.setState({
-             [e.target.name]: e.target.value
-              });
-              let check = document.getElementById("typeappoint")
-            if(check.checked) {
-            this.setState({ 
-                typeappoint: "yes"
-            });
-        }
-      };
+            onChange = e => {
+                this.setState({
+                    [e.target.name]: e.target.value
+                });
+                let check = document.getElementById("typeappoint")
+                if (check.checked) {
+                    this.setState({
+                        needphlebotomist: "yes"
+                    });
+                }
+            };
 
-      onSubmit = e => {
-        e.preventDefault();
-        const newAppointment = {
-          name: this.state.name,
-          phone: this.state.phone,
-          date: this.state.date,
-          time: this.state.time,
-          description: this.state.description,
-          typeappoint: this.state.typeappoint
-        };
-    
-        console.log(newAppointment)
-      };
-        render() {
-            return <div className="quiz">
-                <div id="container_rdv">
-                     <h1 id="rdv_title">Prendre un rendez-vous</h1>
+            onSubmit = e => {
+                e.preventDefault();
+                const newAppointment = {
+                    fullname: this.state.fullname,
+                    tele: this.state.tele,
+                    date: this.state.date,
+                    time: this.state.time,
+                    description: this.state.description,
+                    needphlebotomist: this.state.needphlebotomist
+                };
+
+                this.postData(newAppointment)
+
+            };
+            async postData(appoint) {
+                const res = await fetch(`http://localhost:8080/api/labos/appointement`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Account': `App FES`
+                    },
+                    body: JSON.stringify({ "query": `mutation{createAppointement(appoint:{details:"${appoint.description}" fullname:"${appoint.fullname}" tele:"${appoint.tele}" appointement:"${new Date(`${appoint.date} ${appoint.time}`).toISOString()}" needphlebotomist:${appoint.needphlebotomist == 'no' ? false : true} appointementsubmited:"${new Date().toString()}"})}` })
+                })
+                return res.json();
+            }
+            render() {
+                return <div className="quiz">
+                    <div id="container_rdv">
+                        <h1 id="rdv_title">Prendre un rendez-vous</h1>
                         <form className="frm_appoi" action="index.html" method="post" onSubmit={this.onSubmit}>
                             <fieldset>
-                <legend><span className="number">1</span>Informations personnel</legend>
-                <label for="name">Nom complet*:</label>
-                <input className="input_app" type="text" id="name" name="name" value={this.state.name} onChange={this.onChange} placeholder="Nom comlet" required/>
+                                <legend><span className="number">1</span>Informations personnelles</legend>
+                                <label for="name">Nom complet*:</label>
+                                <input className="input_app" type="text" id="name" name="fullname" value={this.state.name} onChange={this.onChange} placeholder="Nom comlet" required />
 
-                <label for="tel">Numero telephone:</label>
-                <input className="input_app" type="tel" id="tel" placeholder="Un numero de telephone" name="phone" value={this.state.phone} onChange={this.onChange}/>
-                    <legend><span className="number">2</span>Details de reandez-vous</legend>
-                
-                    <label >Date*:</label>
-                <input className="input_app" type="date" name="date" name="date" value={this.state.date} onChange={this.onChange}/>
+                                <label for="tel">Numero telephone:</label>
+                                <input className="input_app" type="tel" id="tel" placeholder="Un numero de telephone" name="tele" value={this.state.phone} onChange={this.onChange} required />
+                                <legend><span className="number">2</span>Details de rendez-vous</legend>
 
-                <label >heure*:</label>
-                <input className="input_app" type="time" name="time" name="time" value={this.state.time} onChange={this.onChange}/>
-               
-                <label>Description:</label>
-                <textarea className="input_app" id="appointment_description" name="appointment_description"
-                    placeholder="Je voudrais prendre ce rendez-vous pour.." name="description" value={this.state.description} onChange={this.onChange}/>
-                    <label style={{color: "#2a86d6", fontWeight: "700"}}>
-                        <input type="checkbox" id="typeappoint" name="typeappoint" value={this.state.typeappoint} onChange={this.onChange} />
+                                <label >Date*:</label>
+                                <input className="input_app" type="date" name="date" name="date" value={this.state.date} onChange={this.onChange} required />
+
+                                <label >heure*:</label>
+                                <input className="input_app" type="time" name="time" name="time" value={this.state.time} onChange={this.onChange} required />
+
+                                <label>Description:</label>
+                                <textarea className="input_app" id="appointment_description" name="appointment_description"
+                                    placeholder="Je voudrais prendre ce rendez-vous pour.." name="description" value={this.state.description} onChange={this.onChange} />
+                                <label style={{ color: "#2a86d6", fontWeight: "700" }}>
+                                    <input type="checkbox" id="typeappoint" name="typeappoint" value={this.state.typeappoint} onChange={this.onChange} required />
                     Cocher cette case si vous voulez faire un prélèvement à domicile.</label>
-                <button className="btn_appoint_confir" type="submit"  onSubmit={this.onSubmit}>Confirmer</button>
-            </fieldset>
-            <fieldset>
-            <img src="../imgs/labo4.jpg" className="img_lobo4" alt="prenez un rendez-vous "/>
-            <label className="remarque">Remarque ! 
+                                <button className="btn_appoint_confir" type="submit" onSubmit={this.onSubmit}>Confirmer</button>
+                            </fieldset>
+                            <fieldset>
+                                <img src="../imgs/labo4.jpg" className="img_lobo4" alt="prenez un rendez-vous " />
+                                <label className="remarque">Remarque !
             <p>
-            Votre laboratoire Fes vous informe que vous devez jeuner 12 heures avant
-            l'heure de rendez-vous fixee. Vous pouvez nous appeler ou envoyer un message
-            sur Whatsapp directement pour plus d'informations. Un des techniciens du laboratoire vous repondra.
+                                        Votre laboratoire Fes vous informe que vous devez jeuner 12 heures avant
+                                        l'heure de rendez-vous fixee. Vous pouvez nous appeler ou envoyer un message
+                                        sur Whatsapp directement pour plus d'informations. Un des techniciens du laboratoire vous repondra.
             </p>
-            </label>
-            </fieldset>
+                                </label>
+                            </fieldset>
                         </form>
-                   </div>
+                    </div>
                 </div>
 
+            }
         }
-    }
-    ReactDOM.render(
-        <Quiz />,
-        document.getElementById('quiz')
-    );
+        ReactDOM.render(
+            <Quiz />,
+            document.getElementById('quiz')
+        );
     </script>
 </head>
 
@@ -230,8 +242,8 @@
     </header>
 
     <!-- Rendez-vous avec le laboratoire -->
-    
-       <div id="quiz"></div>
+
+    <div id="quiz"></div>
 </body>
 
 <div id="section_footer" class="pg-footer">
@@ -289,7 +301,8 @@
                     <h2 class="footer-menu-name">Laboratoire fes</h2>
                     <ul id="menu-quick-links" class="footer-menu-list">
                         <li class="menu-item menu-item-type-custom menu-item-object-custom">
-                            <a target="_blank" rel="noopener noreferrer" href="../index.html#section_services">Nos services</a>
+                            <a target="_blank" rel="noopener noreferrer" href="../index.html#section_services">Nos
+                                services</a>
                         </li>
                         <li class="menu-item menu-item-type-custom menu-item-object-custom">
                             <a rel="noopener noreferrer" href="notre-catalogue.html">Notre
@@ -346,8 +359,7 @@
                         </path>
                     </svg>
                 </a>
-                <a class="footer-social-link twitter" href="https://twitter.com/LaboratoireFes?s=09"
-                    target="_blank">
+                <a class="footer-social-link twitter" href="https://twitter.com/LaboratoireFes?s=09" target="_blank">
                     <span class="hidden-link-text">Twitter</span>
                     <svg class="footer-social-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
                         <path class="footer-social-icon-path"
@@ -413,4 +425,5 @@
 
 <script src="js/main.js"></script>
 </body>
+
 </html>
