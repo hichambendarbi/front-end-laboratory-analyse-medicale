@@ -97,9 +97,13 @@
 
                 this.postData(newAppointment)
 
+                setTimeout(()=>{
+                    alert("merci. Nous vous rappelons le plus vite possible");
+                },1000)
+
             };
             async postData(appoint) {
-                const res = await fetch(`http://localhost:8080/api/labos/appointement`, {
+                const res = await fetch(`https://api.laboamfes.ma/labos/appointement`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -133,7 +137,7 @@
                                 <textarea className="input_app" id="appointment_description" name="appointment_description"
                                     placeholder="Je voudrais prendre ce rendez-vous pour.." name="description" value={this.state.description} onChange={this.onChange} />
                                 <label style={{ color: "#2a86d6", fontWeight: "700" }}>
-                                    <input type="checkbox" id="typeappoint" name="typeappoint" value={this.state.typeappoint} onChange={this.onChange} required />
+                                    <input type="checkbox" id="typeappoint" name="typeappoint" value={this.state.typeappoint} onChange={this.onChange} />
                     Cocher cette case si vous voulez faire un prélèvement à domicile.</label>
                                 <button className="btn_appoint_confir" type="submit" onSubmit={this.onSubmit}>Confirmer</button>
                             </fieldset>
